@@ -1,0 +1,972 @@
+{
+    "id": 50721,
+    "version_id": 1,
+    "decision_model_id": 8435,
+    "decision_type": "scoring",
+    "setting": {
+    "repeat_client": {
+      "type": "string",
+        "weight": "6",
+          "attributes": [
+            {
+              "key": "3+_successful_loans",
+              "score": "10"
+            },
+            {
+              "key": "2_successful_loans",
+              "score": "8"
+            },
+            {
+              "key": "1_successful_loan",
+              "score": "6"
+            },
+            {
+              "key": "first_time_borrower",
+              "score": "2"
+            }
+          ],
+          "description": "Repeat Client Status",
+          "maximum_score": "10"
+      },
+      "age": {
+        "type": "rules",
+        "weight": "8",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value < 21", "score": 2 },
+              { "condition": "value < 30", "score": 6 },
+              { "condition": "value < 40", "score": 10 },
+              { "condition": "value < 50", "score": 8 },
+              { "condition": "value < 60", "score": 6 },
+              { "condition": "value < 70", "score": 4 },
+              { "condition": true, "score": 2 }
+            ]
+          }
+        ],
+        "description": "Age of Applicant",
+        "maximum_score": "10"
+      },
+      "gender": {
+        "type": "string",
+        "weight": "2",
+        "attributes": [
+          {
+            "key": "male",
+            "score": "5"
+          },
+          {
+            "key": "female",
+            "score": "5"
+          },
+          {
+            "key": "other",
+            "score": "5"
+          }
+        ],
+        "description": "Gender",
+        "maximum_score": "5"
+      },
+      "marital_status": {
+        "type": "string",
+        "weight": "5",
+        "attributes": [
+          {
+            "key": "married",
+            "score": "10"
+          },
+          {
+            "key": "single",
+            "score": "6"
+          },
+          {
+            "key": "separated",
+            "score": "4"
+          },
+          {
+            "key": "widowed",
+            "score": "7"
+          },
+          {
+            "key": "divorced",
+            "score": "4"
+          }
+        ],
+        "description": "Marital Status",
+        "maximum_score": "10"
+      },
+      "no_of_dependent": {
+          "type": "string",
+          "weight": "8",
+          "attributes": [
+              {
+                  "key": "0",
+                  "score": "5"
+              },
+              {
+                  "key": "1",
+                  "score": "8"
+              },
+              {
+                  "key": "2",
+                  "score": "10"
+              },
+              {
+                  "key": "3 or more",
+                  "score": "5"
+              }
+          ],
+          "description": "Number of Dependents",
+          "maximum_score": "10"
+      },
+      "educational_attainment": {
+        "type": "string",
+        "weight": "6",
+        "attributes": [
+          {
+            "key": "phd",
+            "score": "10"
+          },
+          {
+            "key": "masters",
+            "score": "9"
+          },
+          {
+            "key": "bachelors",
+            "score": "8"
+          },
+          {
+            "key": "diploma",
+            "score": "6"
+          },
+          {
+            "key": "high_school",
+            "score": "4"
+          },
+          {
+            "key": "vocational",
+            "score": "5"
+          },
+          {
+            "key": "primary",
+            "score": "2"
+          },
+          {
+            "key": "none",
+            "score": "0"
+          }
+        ],
+        "description": "Educational Attainment",
+        "maximum_score": "10"
+      },
+      "nationality": {
+        "type": "string",
+        "weight": "3",
+        "attributes": [
+          {
+            "key": "citizen",
+            "score": "10"
+          },
+          {
+            "key": "permanent_resident",
+            "score": "8"
+          },
+          {
+            "key": "temporary_resident",
+            "score": "5"
+          },
+          {
+            "key": "foreign_national",
+            "score": "3"
+          }
+        ],
+        "description": "Nationality Status",
+        "maximum_score": "10"
+      },
+      "digital_literacy": {
+        "type": "string",
+        "weight": "4",
+        "attributes": [
+          {
+            "key": "expert",
+            "score": "10"
+          },
+          {
+            "key": "proficient",
+            "score": "8"
+          },
+          {
+            "key": "intermediate",
+            "score": "6"
+          },
+          {
+            "key": "basic",
+            "score": "4"
+          },
+          {
+            "key": "novice",
+            "score": "2"
+          }
+        ],
+        "description": "Digital Literacy Level",
+        "maximum_score": "10"
+      },
+      "years_of_entrepreneurship": {
+        "type": "rules",
+        "weight": "7",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value < 1", "score": 2 },
+              { "condition": "value < 3", "score": 4 },
+              { "condition": "value < 5", "score": 6 },
+              { "condition": "value < 10", "score": 8 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Years of Entrepreneurship Experience",
+        "maximum_score": "10"
+      },
+      "previous_loan_defaults": {
+        "type": "rules",
+        "weight": "9",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value == 0", "score": 10 },
+              { "condition": "value == 1", "score": 5 },
+              { "condition": "value == 2", "score": 2 },
+              { "condition": true, "score": 0 }
+            ]
+          }
+        ],
+        "description": "Previous Loan Defaults",
+        "maximum_score": "10"
+      },
+      "business_location_type": {
+        "type": "string",
+        "weight": "5",
+        "attributes": [
+          {
+            "key": "metropolitan",
+            "score": "10"
+          },
+          {
+            "key": "urban",
+            "score": "8"
+          },
+          {
+            "key": "suburban",
+            "score": "7"
+          },
+          {
+            "key": "rural",
+            "score": "5"
+          },
+          {
+            "key": "remote",
+            "score": "3"
+          }
+        ],
+        "description": "Location Type",
+        "maximum_score": "10"
+      },
+      "home_ownership": {
+        "type": "string",
+        "weight": "7",
+        "attributes": [
+          {
+            "key": "owned_outright",
+            "score": "10"
+          },
+          {
+            "key": "mortgaged",
+            "score": "8"
+          },
+          {
+            "key": "long_term_lease",
+            "score": "7"
+          },
+          {
+            "key": "short_term_lease",
+            "score": "5"
+          },
+          {
+            "key": "rented",
+            "score": "4"
+          },
+          {
+            "key": "shared_space",
+            "score": "3"
+          },
+          {
+            "key": "mobile",
+            "score": "2"
+          }
+        ],
+        "description": "Business Property Ownership",
+        "maximum_score": "10"
+      },
+      "business_ownership": {
+        "type": "string",
+        "weight": "7",
+        "attributes": [
+          {
+            "key": "solo",
+            "score": "7"
+          },
+          {
+            "key": "group_owned",
+            "score": "8"
+          }
+        ],
+        "description": "Business Property Ownership",
+        "maximum_score": "10"
+      },
+      "business_age": {
+        "type": "rules",
+        "weight": "8",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value < 1", "score": 2 },
+              { "condition": "value < 2", "score": 4 },
+              { "condition": "value < 3", "score": 6 },
+              { "condition": "value < 5", "score": 8 },
+              { "condition": "value < 10", "score": 9 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Business Age (in years)",
+        "maximum_score": "10"
+      },
+      "business_registration_status": {
+        "type": "string",
+        "weight": "6",
+        "attributes": [
+          {
+            "key": "incorporated",
+            "score": "10"
+          },
+          {
+            "key": "limited_liability",
+            "score": "9"
+          },
+          {
+            "key": "partnership",
+            "score": "7"
+          },
+          {
+            "key": "sole_proprietorship",
+            "score": "6"
+          },
+          {
+            "key": "registered_business_name",
+            "score": "5"
+          },
+          {
+            "key": "informal",
+            "score": "2"
+          }
+        ],
+        "description": "Business Registration Status",
+        "maximum_score": "10"
+      },
+      "business_sector": {
+        "type": "string",
+        "weight": "5",
+        "attributes": [
+          {
+            "key": "technology",
+            "score": "10"
+          },
+          {
+            "key": "healthcare",
+            "score": "9"
+          },
+          {
+            "key": "financial_services",
+            "score": "9"
+          },
+          {
+            "key": "education",
+            "score": "8"
+          },
+          {
+            "key": "manufacturing",
+            "score": "8"
+          },
+          {
+            "key": "retail",
+            "score": "7"
+          },
+          {
+            "key": "food_and_beverage",
+            "score": "7"
+          },
+          {
+            "key": "agriculture",
+            "score": "6"
+          },
+          {
+            "key": "transportation",
+            "score": "6"
+          },
+          {
+            "key": "construction",
+            "score": "6"
+          },
+          {
+            "key": "entertainment",
+            "score": "5"
+          },
+          {
+            "key": "hospitality",
+            "score": "5"
+          },
+          {
+            "key": "other_services",
+            "score": "5"
+          }
+        ],
+        "description": "Business Sector",
+        "maximum_score": "10"
+      },
+      "number_of_employees": {
+        "type": "rules",
+        "weight": "5",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value == 1", "score": 4 },
+              { "condition": "value <= 5", "score": 6 },
+              { "condition": "value <= 10", "score": 7 },
+              { "condition": "value <= 20", "score": 8 },
+              { "condition": "value <= 50", "score": 9 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Number of Employees",
+        "maximum_score": "10"
+      },
+      "annual_revenue": {
+        "type": "string",
+        "weight": "9",
+        "attributes": [
+          {
+            "key": "10M+",
+            "score": "10"
+          },
+          {
+            "key": "5M_10M",
+            "score": "9"
+          },
+          {
+            "key": "1M_5M",
+            "score": "8"
+          },
+          {
+            "key": "500K_1M",
+            "score": "7"
+          },
+          {
+            "key": "250K_500K",
+            "score": "6"
+          },
+          {
+            "key": "100K_250K",
+            "score": "5"
+          },
+          {
+            "key": "50K_100K",
+            "score": "4"
+          },
+          {
+            "key": "25K_50K",
+            "score": "3"
+          },
+          {
+            "key": "under_25K",
+            "score": "2"
+          }
+        ],
+        "description": "Annual Revenue",
+        "maximum_score": "10"
+      },
+      "business_diversification": {
+        "type": "rules",
+        "weight": "6",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value == 1", "score": 4 },
+              { "condition": "value == 2", "score": 6 },
+              { "condition": "value == 3", "score": 8 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Number of Product/Service Lines",
+        "maximum_score": "10"
+      },
+      "business_seasonality": {
+        "type": "string",
+        "weight": "5",
+        "attributes": [
+          {
+            "key": "year_round",
+            "score": "10"
+          },
+          {
+            "key": "minor_fluctuations",
+            "score": "8"
+          },
+          {
+            "key": "seasonal_high_low",
+            "score": "6"
+          },
+          {
+            "key": "highly_seasonal",
+            "score": "4"
+          }
+        ],
+        "description": "Business Seasonality",
+        "maximum_score": "10"
+      },
+      "online_presence": {
+        "type": "string",
+        "weight": "5",
+        "attributes": [
+          {
+            "key": "comprehensive",
+            "score": "10"
+          },
+          {
+            "key": "strong",
+            "score": "8"
+          },
+          {
+            "key": "adequate",
+            "score": "6"
+          },
+          {
+            "key": "basic",
+            "score": "4"
+          },
+          {
+            "key": "minimal",
+            "score": "2"
+          },
+          {
+            "key": "none",
+            "score": "0"
+          }
+        ],
+        "description": "Online Presence",
+        "maximum_score": "10"
+      },
+      "years_of_credit_history": {
+        "type": "rules",
+        "weight": "6",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value < 1", "score": 2 },
+              { "condition": "value < 3", "score": 4 },
+              { "condition": "value < 5", "score": 6 },
+              { "condition": "value < 7", "score": 8 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Years of Credit History",
+        "maximum_score": "10"
+      },
+      "repayment_history": {
+        "type": "rules",
+        "weight": "9",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value < 70", "score": 0 },
+              { "condition": "value < 80", "score": 2 },
+              { "condition": "value < 90", "score": 5 },
+              { "condition": "value < 95", "score": 7 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Repayment History Score (0-100)",
+        "maximum_score": "10"
+      },
+      "current_debt_obligations": {
+        "type": "rules",
+        "weight": "8",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value > 80", "score": 0 },
+              { "condition": "value > 60", "score": 2 },
+              { "condition": "value > 50", "score": 4 },
+              { "condition": "value > 40", "score": 6 },
+              { "condition": "value > 30", "score": 8 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Current Debt-to-Income Ratio (%)",
+        "maximum_score": "10"
+      },
+      "recent_credit_inquiries": {
+        "type": "rules",
+        "weight": "5",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value > 5", "score": 0 },
+              { "condition": "value > 3", "score": 3 },
+              { "condition": "value > 2", "score": 5 },
+              { "condition": "value > 1", "score": 7 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Number of Recent Credit Inquiries (Last 6 Months)",
+        "maximum_score": "10"
+      },
+      "profit_margin": {
+        "type": "rules",
+        "weight": "8",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value < 0", "score": 0 },
+              { "condition": "value < 5", "score": 2 },
+              { "condition": "value < 10", "score": 4 },
+              { "condition": "value < 15", "score": 6 },
+              { "condition": "value < 20", "score": 8 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Profit Margin (%)",
+        "maximum_score": "10"
+      },
+      "revenue_growth_rate": {
+        "type": "rules",
+        "weight": "8",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value < 0", "score": 0 },
+              { "condition": "value < 5", "score": 3 },
+              { "condition": "value < 10", "score": 5 },
+              { "condition": "value < 15", "score": 7 },
+              { "condition": "value < 25", "score": 9 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Annual Revenue Growth Rate (%)",
+        "maximum_score": "10"
+      },
+      "operating_expense_ratio": {
+        "type": "rules",
+        "weight": "6",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value > 90", "score": 0 },
+              { "condition": "value > 80", "score": 2 },
+              { "condition": "value > 70", "score": 4 },
+              { "condition": "value > 60", "score": 6 },
+              { "condition": "value > 50", "score": 8 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Operating Expense Ratio (%)",
+        "maximum_score": "10"
+      },
+      "average_daily_balance": {
+        "type": "rules",
+        "weight": "7",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value < 1000", "score": 2 },
+              { "condition": "value < 5000", "score": 4 },
+              { "condition": "value < 10000", "score": 6 },
+              { "condition": "value < 25000", "score": 8 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Average Daily Bank Balance",
+        "maximum_score": "10"
+      },
+      "overdraft_frequency": {
+        "type": "rules",
+        "weight": "7",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value > 12", "score": 0 },
+              { "condition": "value > 6", "score": 2 },
+              { "condition": "value > 3", "score": 4 },
+              { "condition": "value > 1", "score": 6 },
+              { "condition": "value > 0", "score": 8 },
+              { "condition": true, "score": 10 }
+            ]
+          }
+        ],
+        "description": "Overdraft Occurrences (Last 12 Months)",
+        "maximum_score": "10"
+      },
+      "number_of_bank_accounts": {
+        "type": "rules",
+        "weight": "4",
+        "attributes": [
+          {
+            "rule": [
+              { "condition": "value < 1", "score": 2 },
+              { "condition": "value < 2", "score": 6 },
+              { "condition": "value < 4", "score": 10 },
+              { "condition": "value < 6", "score": 8 },
+              { "condition": true, "score": 6 }
+            ]
+          }
+        ],
+        "description": "Number of Active Bank Accounts",
+        "maximum_score": "10"
+      },
+      "business_insurance_coverage": {
+            "type": "string",
+            "weight": "7",
+            "attributes": [
+              {
+                "key": "comprehensive",
+                "score": "10"
+              },
+              {
+                "key": "substantial",
+                "score": "8"
+              },
+              {
+                "key": "adequate",
+                "score": "6"
+              },
+              {
+                "key": "basic",
+                "score": "4"
+              },
+              {
+                "key": "minimal",
+                "score": "2"
+              },
+              {
+                "key": "none",
+                "score": "0"
+              }
+            ],
+            "description": "Business Insurance Coverage",
+            "maximum_score": "10"
+      },
+      "financial_controls": {
+        "type": "string",
+        "weight": "8",
+        "attributes": [
+          {
+            "key": "enterprise_system",
+            "score": "10"
+          },
+          {
+            "key": "integrated_software",
+            "score": "8"
+          },
+          {
+            "key": "accounting_software",
+            "score": "6"
+          },
+          {
+            "key": "spreadsheet_tracking",
+            "score": "4"
+          },
+          {
+            "key": "manual_records",
+            "score": "2"
+          },
+          {
+            "key": "inadequate",
+            "score": "0"
+          }
+        ],
+        "description": "Financial Controls Implementation",
+        "maximum_score": "10"
+      }, 
+      "technological_adoption": {
+        "type": "string",
+        "weight": "5",
+        "attributes": [
+          {
+            "key": "innovator",
+            "score": "10"
+          },
+          {
+            "key": "early_adopter",
+            "score": "9"
+          },
+          {
+            "key": "early_majority",
+            "score": "8"
+          },
+          {
+            "key": "late_majority",
+            "score": "6"
+          },
+          {
+            "key": "laggard",
+            "score": "3"
+          }
+        ],
+        "description": "Technological Adoption Level",
+        "maximum_score": "10"
+      },
+      "spousal_employment": {
+        "type": "string",
+        "weight": "4",
+        "attributes": [
+          {
+            "key": "full_time_stable",
+            "score": "10"
+          },
+          {
+            "key": "part_time_stable",
+            "score": "8"
+          },
+          {
+            "key": "self_employed",
+            "score": "7"
+          },
+          {
+            "key": "contract_work",
+            "score": "6"
+          },
+          {
+            "key": "unemployed",
+            "score": "2"
+          },
+          {
+            "key": "not_applicable",
+            "score": "5"
+          }
+        ],
+        "description": "Spouse's Employment Status",
+        "maximum_score": "10"
+      },
+      "household_income": {
+        "type": "string",
+        "weight": "6",
+        "attributes": [
+          {
+            "key": "very_high",
+            "score": "10"
+          },
+          {
+            "key": "high",
+            "score": "8"
+          },
+          {
+            "key": "above_average",
+            "score": "7"
+          },
+          {
+            "key": "average",
+            "score": "5"
+          },
+          {
+            "key": "below_average",
+            "score": "3"
+          },
+          {
+            "key": "low",
+            "score": "2"
+          }
+        ],
+        "description": "Total Household Income Level",
+        "maximum_score": "10"
+      },
+      "guarantor_relationship": {
+        "type": "string",
+        "weight": "4",
+        "attributes": [
+          {
+            "key": "owner",
+            "score": "10"
+          },
+          {
+            "key": "partner",
+            "score": "9"
+          },
+          {
+            "key": "board_member",
+            "score": "8"
+          },
+          {
+            "key": "executive",
+            "score": "7"
+          },
+          {
+            "key": "investor",
+            "score": "6"
+          },
+          {
+            "key": "family_member",
+            "score": "5"
+          },
+          {
+            "key": "external_entity",
+            "score": "3"
+          }
+        ],
+        "description": "Guarantor's Relationship to Business",
+        "maximum_score": "10"
+      },
+      "payment_processing_method": {
+        "type": "string",
+        "weight": "5",
+        "attributes": [
+          {
+            "key": "digital_only",
+            "score": "10"
+          },
+          {
+            "key": "card_terminal ",
+            "score": "8"
+          },
+          {
+            "key": "digital_and_cash",
+            "score": "7"
+          },
+          {
+            "key": "cash_only",
+            "score": "4"
+          }
+        ],
+        "description": "Payment Processing Method",
+        "maximum_score": "10"
+      }
+    },
+    "created_at": "2023-10-01T12:00:00Z",
+    "updated_at": "2023-10-01T12:00:00Z",
+    "created_by": 1,
+    "updated_by": 1,
+    "status": "active",
+    "is_deleted": false,
+    "is_custom": false,
+    "is_standard": true,
+    "is_archived": false
+}

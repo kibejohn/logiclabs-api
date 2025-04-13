@@ -1,0 +1,66 @@
+{
+    "threshold": 60,
+    "indicators": [
+      {
+        "key": "char",
+        "name": "Character",
+        "weight": 10,
+        "min_threshold": "Good"
+      },
+      {
+        "key": "ability",
+        "name": "Ability",
+        "weight": 10,
+        "min_threshold": "Good"
+      },
+      {
+        "key": "purpose",
+        "name": "Purpose",
+        "weight": 5,
+        "min_threshold": "Good"
+      },
+      {
+        "key": "repayments_history",
+        "name": "Repayments History",
+        "weight": 10,
+        "min_threshold": "Excellent"
+      },
+      {
+        "key": "security",
+        "name": "Security",
+        "weight": 5,
+        "min_threshold": "Good"
+      },
+      {
+        "key": "cashflow",
+        "name": "Cashflow",
+        "weight": 15,
+        "min_threshold": "Good"
+      },
+      {
+        "key": "credit_bureau",
+        "name": "Credit Bureau",
+        "weight": 10,
+        "min_threshold": "Good"
+      },
+      {
+        "key": "demographic_score",
+        "name": "Demographic Score",
+        "weight": 5,
+        "min_threshold": "Good"
+      },
+      {
+        "key": "social_media_activity",
+        "name": "Social Media Activity",
+        "weight": 5,
+        "min_threshold": "Good"
+      },
+      {
+        "key": "income",
+        "name": "Income",
+        "weight": 15,
+        "min_threshold": "Good"
+      }
+    ]
+  }
+  
